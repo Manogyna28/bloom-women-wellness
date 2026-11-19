@@ -20,7 +20,11 @@ app = FastAPI(title="Sleep quality estimator (experimental)")
 # Allow your frontend dev server to call this API. Adjust ports if yours differ.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000", "http://localhost:5173"],
+   allow_origins=[
+    "http://localhost:3000",
+    "http://localhost:5173",
+    "https://bloom-women-wellness.vercel.app"
+],
     allow_methods=["*"],
     allow_headers=["*"],
 )
