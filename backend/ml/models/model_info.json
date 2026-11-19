@@ -1,0 +1,62 @@
+{
+  "name": "Experimental sleep-quality estimator (educational, not medical)",
+  "created": "2026-10-27T18:28:39",
+  "algorithm": "Logistic Regression inside a StandardScaler pipeline",
+  "features_in_order": [
+    "Age",
+    "Sleep Duration",
+    "Physical Activity Level",
+    "Stress Level"
+  ],
+  "label": {
+    "1": "good sleep (score >= 7)",
+    "0": "lower sleep (score <= 6)"
+  },
+  "trained_on_rows": 132,
+  "class_counts": {
+    "good": 86,
+    "lower": 46
+  },
+  "training_value_ranges": {
+    "Age": [
+      27.0,
+      59.0
+    ],
+    "Sleep Duration": [
+      5.8,
+      8.5
+    ],
+    "Physical Activity Level": [
+      30.0,
+      90.0
+    ],
+    "Stress Level": [
+      3.0,
+      8.0
+    ]
+  },
+  "standardised_coefficients": {
+    "Age": 0.684,
+    "Sleep Duration": 2.447,
+    "Physical Activity Level": 0.277,
+    "Stress Level": -2.414
+  },
+  "evaluation_from_train_model_py": {
+    "note": "Measured on the 99-row training split (25 grouped CV rounds) and a 33-row test split BEFORE the final refit on all rows. The saved model has no separate score of its own.",
+    "cv_macro_f1": 0.964,
+    "baseline_cv_macro_f1": 0.393,
+    "test_macro_f1": 1.0,
+    "test_rows": 33
+  },
+  "versions": {
+    "python": "3.13.3",
+    "scikit_learn": "1.8.0"
+  },
+  "limitations": [
+    "Experimental educational model. Not a medical tool and not a diagnosis.",
+    "Trained on about 132 unique, probably synthetic, self-reported records.",
+    "Ages 27-59 only. Predictions outside the training ranges are unreliable.",
+    "Scores are driven mostly by Stress Level and Sleep Duration.",
+    "Very high test scores reflect how tidy this dataset is, not real-world accuracy."
+  ]
+}

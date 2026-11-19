@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gradient-to-br from-lav-50 via-white to-brand-50 text-slate-700 min-h-screen;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-lav-500 to-brand-500 px-6 py-3 font-semibold text-white shadow-soft transition hover:scale-[1.03] hover:shadow-lg active:scale-95;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-white/70 px-6 py-3 font-semibold text-lav-600 backdrop-blur transition hover:bg-white;
+  }
+  .card {
+    @apply rounded-3xl bg-white/80 p-6 shadow-soft backdrop-blur;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
